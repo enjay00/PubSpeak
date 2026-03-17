@@ -32,7 +32,7 @@ const PROPONENTS_LIST = [
     email: "nieljhonmontero@gmail.com",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
-  }
+  },
 ];
 
 export default function AboutUs() {
