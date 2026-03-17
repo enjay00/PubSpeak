@@ -20,11 +20,17 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
+<<<<<<< HEAD
       "package": "com.railyalmeron.pubspeaker",
       "permissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS",
         "android.permission.RECORD_AUDIO",
+=======
+      "package": "com.jkrmarmol.pubspeakerv2",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+>>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
         "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
     },
@@ -63,6 +69,7 @@
     "extra": {
       "router": {},
       "eas": {
+<<<<<<< HEAD
         "projectId": "a3f21672-8041-49a7-b483-2469e19cc2f0"
       }
     },
@@ -71,6 +78,10 @@
     },
     "updates": {
       "url": "https://u.expo.dev/a3f21672-8041-49a7-b483-2469e19cc2f0"
+=======
+        "projectId": "e19a323a-3440-4447-9859-20b94eb5cfce"
+      }
+>>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
     }
   }
 }

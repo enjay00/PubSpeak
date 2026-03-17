@@ -27,12 +27,15 @@ const PROPONENTS_LIST = [
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
   },
+<<<<<<< HEAD
   {
     name: "Niel Jhon Montero",
     email: "nieljhonmontero@gmail.com",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
   },
+=======
+>>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
 ];
 
 export default function AboutUs() {
@@ -65,7 +68,11 @@ export default function AboutUs() {
           key={index}
           className="bg-secondary-dark p-4 flex-row justify-between gap-6 mt-6 rounded-[15px]"
         >
+<<<<<<< HEAD
           <View className="bg-[#F5F5F5] w-34.25 h-37.5 justify-center items-center rounded-[15px]">
+=======
+          <View className="bg-[#531919] w-34.25 h-37.5 justify-center items-center rounded-[15px]">
+>>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
             <Image
               source={proponent.image}
               style={{ width: 100, height: 100 }}
