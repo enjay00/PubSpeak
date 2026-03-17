@@ -20,8 +20,10 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.jkrmarmol.pubspeakerv2",
+      "package": "com.railyalmeron.pubspeaker",
       "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
         "android.permission.RECORD_AUDIO",
         "android.permission.MODIFY_AUDIO_SETTINGS"
       ]
@@ -61,8 +63,14 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "e19a323a-3440-4447-9859-20b94eb5cfce"
+        "projectId": "a3f21672-8041-49a7-b483-2469e19cc2f0"
       }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a3f21672-8041-49a7-b483-2469e19cc2f0"
     }
   }
 }
