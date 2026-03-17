@@ -41,11 +41,7 @@ export default function NewSuggestion(props: Suggestion) {
 
       <View className="mt-2">
         <Text className="font-montserrat-bold text-base text-primary-light">
-<<<<<<< HEAD
-          Improved Version
-=======
-          Original
->>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
+          Improved
         </Text>
         <Text className="font-montserrat text-xs text-[#C0C0C0]">
           Rewritten for clarity and impact

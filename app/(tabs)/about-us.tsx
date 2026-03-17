@@ -6,36 +6,38 @@ const PROPONENTS_LIST = [
   {
     name: "Raily Almeron",
     email: "yliarnoremla@gmail.com",
+    course: "BS Information Techonology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/IMG_20230911_121010_511-removebg-preview.png"),
   },
   {
     name: "Loyd Ashlie Mirabuna",
     email: "loydash09@gmail.com",
+    course: "BS Information Techonology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Loyd Mirabuna.png"),
   },
   {
     name: "Andrei Tirao",
     email: "tirao.andreib@gmail.com",
+    course: "BS Information Techonology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Andrei_Tirao-removebg-preview.png"),
   },
   {
     name: " Christian Lloyd Vasquez",
     email: "vasquez1@gmail.com",
+    course: "BS Information Techonology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
   },
-<<<<<<< HEAD
   {
     name: "Niel Jhon Montero",
-    email: "nieljhonmontero@gmail.com",
+    email: "nieljhon@gmail.com",
+    course: "BS Information Techonology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
   },
-=======
->>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
 ];
 
 export default function AboutUs() {
@@ -68,11 +70,7 @@ export default function AboutUs() {
           key={index}
           className="bg-secondary-dark p-4 flex-row justify-between gap-6 mt-6 rounded-[15px]"
         >
-<<<<<<< HEAD
           <View className="bg-[#F5F5F5] w-34.25 h-37.5 justify-center items-center rounded-[15px]">
-=======
-          <View className="bg-[#531919] w-34.25 h-37.5 justify-center items-center rounded-[15px]">
->>>>>>> 5c9e6e7154d99abe917e80615a7b04ead0602020
             <Image
               source={proponent.image}
               style={{ width: 100, height: 100 }}
@@ -84,6 +82,9 @@ export default function AboutUs() {
             </Text>
             <Text className="text-xs font-open-sans text-primary-light">
               Email: {proponent.email}
+            </Text>
+            <Text className="text-xs font-open-sans text-primary-light">
+              Course: {proponent.course}
             </Text>
             <Text className="text-xs font-open-sans text-primary-light">
               Address: {proponent.address}
