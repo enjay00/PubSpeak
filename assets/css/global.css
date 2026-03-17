@@ -1,0 +1,32 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@layer theme {
+  @theme {
+    /* Font */
+    --font-montserrat: "Montserrat_400Regular", sans-serif;
+    --font-montserrat-medium: "Montserrat_500Medium", sans-serif;
+    --font-montserrat-semibold: "Montserrat_600SemiBold", sans-serif;
+    --font-montserrat-bold: "Montserrat_700Bold", sans-serif;
+    --font-montserrat-extrabold: "Montserrat_800ExtraBold", sans-serif;
+    --font-open-sans: "OpenSans_400Regular", sans-serif;
+    --font-open-sans-bold: "OpenSans_700Bold", sans-serif;
+    /* Primary */
+    --color-primary-light: #fffafa;
+    --color-primary-dark: #1f1f1f;
+    --color-primary-amber: #ffa81a;
+    --color-primary-blue: #324766;
+
+    /* Result */
+    --color-result-red: #ff0000;
+    --color-result-green: #a0ffa0;
+    --color-result-yellow: #ffff00;
+
+    /* Secondary */
+    --color-secondary-light: #f0f0f0;
+    --color-secondary-dark: #2a2a2a;
+  }
+}
