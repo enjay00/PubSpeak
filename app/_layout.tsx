@@ -21,7 +21,8 @@ import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 import { router, Stack } from "expo-router";
 import { openDatabaseSync, SQLiteProvider } from "expo-sqlite";
 import { StatusBar } from "expo-status-bar";
-import { Suspense } from "react";
+import * as Updates from "expo-updates";
+import { Suspense, useEffect } from "react";
 import { ActivityIndicator } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "react-native-reanimated";
@@ -50,6 +51,22 @@ export default function RootLayout() {
     OpenSans_400Regular,
     OpenSans_700Bold,
   });
+
+  // Auto update
+  useEffect(() => {
+    async function checkForUpdate() {
+      try {
+        const check = await Updates.checkForUpdateAsync();
+        if (check.isAvailable) {
+          await Updates.fetchUpdateAsync();
+          await Updates.reloadAsync();
+        }
+      } catch (e) {
+        console.log("Update check failed:", e);
+      }
+    }
+    checkForUpdate();
+  }, []);
 
   if ((!loaded && !error) || (!migrationSuccess && !migrationError)) {
     return null;

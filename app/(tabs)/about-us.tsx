@@ -6,37 +6,37 @@ const PROPONENTS_LIST = [
   {
     name: "Raily Almeron",
     email: "yliarnoremla@gmail.com",
-    course: "BS Information Techonology",
+    course: "BS Information Technology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/IMG_20230911_121010_511-removebg-preview.png"),
   },
   {
     name: "Loyd Ashlie Mirabuna",
     email: "loydash09@gmail.com",
-    course: "BS Information Techonology",
+    course: "BS Information Technology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Loyd Mirabuna.png"),
   },
   {
     name: "Andrei Tirao",
     email: "tirao.andreib@gmail.com",
-    course: "BS Information Techonology",
+    course: "BS Information Technology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Andrei_Tirao-removebg-preview.png"),
   },
   {
     name: " Christian Lloyd Vasquez",
     email: "vasquez1@gmail.com",
-    course: "BS Information Techonology",
+    course: "BS Information Technology",
     address: "Quezon City, Philippines",
     image: require("@/assets/proponents/Christian Vasquez.png"),
   },
   {
     name: "Niel Jhon Montero",
     email: "nieljhon@gmail.com",
-    course: "BS Information Techonology",
+    course: "BS Information Technology",
     address: "Quezon City, Philippines",
-    image: require("@/assets/proponents/Christian Vasquez.png"),
+    image: require("@/assets/proponents/Niel Jhon.png"),
   },
 ];
 
@@ -58,9 +58,9 @@ export default function AboutUs() {
           PubSpeaker{" "}
           <Text className="font-open-sans">
             is a mobile application that helps user refine their public speaking
-            skills by focusing on pronunciation and grammar. It analyzes
-            recorded speeches and provides real-time, locally stored feedback
-            without requiring internet access.
+            by focusing on pronunciation and grammar. It analyzes recorded
+            speeches and provides real-time, locally stored feedback without
+            requiring internet access.
           </Text>
         </Text>
       </View>

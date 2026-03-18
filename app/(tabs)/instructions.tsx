@@ -39,7 +39,7 @@ export default function Instructions() {
             items={[
               "Transcribed text",
               "Grammar and pronunciation errors",
-              "Number of mispronounced and Grammar errors",
+              "Number of mispronounced words",
               "Suggestions",
               "Feedbacks",
             ]}

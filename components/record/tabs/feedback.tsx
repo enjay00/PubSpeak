@@ -6,7 +6,7 @@ import { Text, View } from "react-native";
 const ICON_MAP: Record<string, { name: string; color: string }> = {
   info: { name: "information-circle", color: "#3B82F6" },
   positive: { name: "checkmark-circle", color: "#10B981" },
-  warning: { name: "close-circle", color: "#FF0000" },
+  warning: { name: "close-circle", color: "#FF383E" },
 };
 
 export default function Feedback(props: FeedbackType) {

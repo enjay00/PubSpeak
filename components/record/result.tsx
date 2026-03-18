@@ -58,7 +58,7 @@ export default function Result() {
         <View className="flex flex-row items-center gap-2 justify-start px-5">
           <View>
             <View className="flex flex-row items-center gap-2 mb-5">
-              <View className="h-3 w-3 bg-[#FF0000] rounded-full"></View>
+              <View className="h-3 w-3 bg-[#FF383E] rounded-full"></View>
               <Text className="font-montserrat text-xs text-primary-light">
                 Mispronunciation
               </Text>
@@ -89,7 +89,7 @@ export default function Result() {
       {selectedTab === "Summary" && (
         <View className="px-5">
           <View className="flex flex-row items-center gap-2 mb-5">
-            <View className="h-3 w-3 bg-[#FF0000] rounded-full"></View>
+            <View className="h-3 w-3 bg-[#FF383E] rounded-full"></View>
             <Text className="font-montserrat text-xs text-primary-light">
               Mispronunciation
             </Text>

@@ -5,7 +5,7 @@ const SAMPLE_TEXT =
   "How much variation is there? Let's find <red>it</red> out.";
 
 export const COLOR_MAP: Record<string, string> = {
-  red: "#FF0000",
+  red: "#FF383E",
   yellow: "#FFD700",
   blue: "#48A7FF",
   green: "#A0FFA0",
