@@ -4,19 +4,22 @@ import { cleanUpRenameFile, setIsRenameModalOpen } from "@/redux/fileSlice";
 import { fileChangeEvent } from "@/utils/fileChangeEvent";
 import { getFileInfo } from "@/utils/getFileInfo";
 import { Ionicons } from "@expo/vector-icons";
-import {
-  BottomSheetBackdrop,
-  BottomSheetBackdropProps,
-  BottomSheetModal,
-  BottomSheetView,
-} from "@gorhom/bottom-sheet";
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import { File, Paths } from "expo-file-system";
-import { useFocusEffect } from "expo-router";
 import { useSQLiteContext } from "expo-sqlite";
-import React, { useCallback, useRef, useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
 export default function RenameModal() {
   const [rename, setRename] = useState<string>("");
@@ -25,9 +28,14 @@ export default function RenameModal() {
     (state) => state.file.isRenameModalOpen,
   );
   const selectRenameFile = useAppSelector((state) => state.file.renameFile);
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const db = useSQLiteContext();
   const drizzleDb = drizzle(db, { schema });
+
+  useEffect(() => {
+    if (selectIsRenameModal && selectRenameFile !== null) {
+      setRename(getFileInfo(selectRenameFile).fullName);
+    }
+  }, [selectIsRenameModal, selectRenameFile]);
 
   const renameFileInfo = async () => {
     try {
@@ -49,75 +57,53 @@ export default function RenameModal() {
           .where(eq(schema.speech.audioUri, selectRenameFile.uri));
       }
       fileChangeEvent.emit("fileChangeEvent");
-      dispatch(setIsRenameModalOpen(false));
-      dispatch(cleanUpRenameFile());
-      bottomSheetModalRef.current?.dismiss();
+      onDismissRename();
     } catch (err) {
       console.error("Error renaming file:", err);
     }
   };
 
-  const BackdropElement = useCallback(
-    (backdropProps: BottomSheetBackdropProps) => (
-      <BottomSheetBackdrop
-        {...backdropProps}
-        opacity={0.7}
-        appearsOnIndex={0}
-        disappearsOnIndex={-1}
-      />
-    ),
-    [],
-  );
-
   const onDismissRename = () => {
     dispatch(setIsRenameModalOpen(false));
     dispatch(cleanUpRenameFile());
-    bottomSheetModalRef.current?.dismiss();
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      if (selectIsRenameModal) {
-        bottomSheetModalRef.current?.present();
-        if (selectRenameFile !== null) {
-          setRename(getFileInfo(selectRenameFile).fullName);
-        }
-      }
-    }, [selectIsRenameModal, selectRenameFile]),
-  );
-
   return (
-    <BottomSheetModal
-      ref={bottomSheetModalRef}
-      backgroundStyle={{
-        backgroundColor: "#2A2A2A",
-      }}
-      backdropComponent={BackdropElement}
-      onDismiss={onDismissRename}
-      handleComponent={null}
-      enableContentPanningGesture={false}
-      enableDynamicSizing
-      keyboardBehavior="extend"
-      keyboardBlurBehavior="restore"
-      android_keyboardInputMode="adjustResize"
+    <Modal
+      visible={selectIsRenameModal}
+      transparent
+      animationType="slide"
+      statusBarTranslucent
+      onRequestClose={onDismissRename}
     >
-      <BottomSheetView>
-        <View className="rounded-2xl p-8 bg-secondary-dark">
+      {/* Dark backdrop - tapping outside closes modal */}
+      <TouchableWithoutFeedback onPress={onDismissRename}>
+        <View style={styles.backdrop} />
+      </TouchableWithoutFeedback>
+
+      {/* Sheet rises above keyboard */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.kavWrapper}
+      >
+        <View style={styles.sheet}>
           <Text className="font-montserrat-bold text-2xl text-primary-light mb-10">
             Rename
           </Text>
-          <View className=" flex-row items-center border-b-3 border-primary-light">
+
+          <View className="flex-row items-center border-b-3 border-primary-light">
             <TextInput
               className="text-primary-light text-[21px] font-open-sans flex-1"
-              clearButtonMode="always"
               cursorColor={"#fff"}
-              defaultValue={rename}
-              onChangeText={(e) => setRename(e)}
+              value={rename}
+              onChangeText={setRename}
+              autoFocus
             />
             <Pressable onPress={() => setRename("")}>
               <Ionicons name="close-circle" size={25} color="#FFFAFA" />
             </Pressable>
           </View>
+
           <View className="mt-6 flex-row justify-around">
             <Pressable onPress={onDismissRename}>
               <Text className="font-montserrat-bold text-2xl text-primary-light">
@@ -132,7 +118,24 @@ export default function RenameModal() {
             </Pressable>
           </View>
         </View>
-      </BottomSheetView>
-    </BottomSheetModal>
+      </KeyboardAvoidingView>
+    </Modal>
   );
 }
+
+const styles = StyleSheet.create({
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: "rgba(0,0,0,0.7)",
+  },
+  kavWrapper: {
+    flex: 1,
+    justifyContent: "flex-end",
+  },
+  sheet: {
+    backgroundColor: "#2A2A2A",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    padding: 32,
+  },
+});
