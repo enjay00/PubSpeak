@@ -97,6 +97,9 @@ export default function RenameModal() {
       handleComponent={null}
       enableContentPanningGesture={false}
       enableDynamicSizing
+      keyboardBehavior="extend"
+      keyboardBlurBehavior="restore"
+      android_keyboardInputMode="adjustResize"
     >
       <BottomSheetView>
         <View className="rounded-2xl p-8 bg-secondary-dark">
